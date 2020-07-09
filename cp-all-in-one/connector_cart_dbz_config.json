@@ -1,0 +1,24 @@
+{
+  "name": "cart_dbz",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "transforms": "uwrap",
+    "transforms.uwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "database.hostname": "docker.for.mac.localhost",
+    "database.port": "3306",
+    "database.user": "root",
+    "database.password": "Endurance",
+    "database.server.name": "staging",
+    "database.history.kafka.bootstrap.servers": "broker:29092",
+    "database.history.kafka.topic": "schema_history_topic",
+    "database.history.store.only.monitored.tables.ddl": "true",
+    "include.schema.changes": "true",
+    "include.query": "true",
+    "tombstones.on.delete": "true",
+    "snapshot.mode": "initial",
+    "snapshot.locking.mode": "none",
+    "transforms.unwrap.add.source.fields": "ts_ms"
+  }
+}

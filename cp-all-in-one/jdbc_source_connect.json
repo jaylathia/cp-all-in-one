@@ -1,0 +1,23 @@
+{
+  "name": "jdbc_connector",
+  "config": {
+    "tasks.max": "1",
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "connection.url": "jdbc:mysql://192.168.0.105/cart",
+    "connection.attempts": "3",
+    "connection.user": "root",
+    "connection.password": "Endurance",
+    "topic.prefix": "gpx-ss_",
+    "catalog.pattern" : "cart",
+    "poll.interval.ms": "120000",
+    "table.whitelist": "shopping_cart",
+    "mode": "timestamp+incrementing",
+    "incrementing.column.name": "id",
+    "timestamp.column.name": "updated_date",
+    "validate.non.null": "true",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schema.registry.url": "http://localhost:8081",
+    "value.converter.schema.registry.url": "http://localhost:8081"
+  }
+}

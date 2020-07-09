@@ -1,0 +1,32 @@
+{
+  "name": "debezium_connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "database.server.id": "100",
+    "tasks.max": "1",
+    "database.history.kafka.bootstrap.servers": "localhost:9092",
+    "database.history.kafka.topic": "dbhistory.gpx_proxy",
+    "database.server.name": "gpx_node1",
+    "database.hostname": "192.168.0.105",
+    "database.port":"3306",
+    "database.user": "root",
+    "database.password": "Endurance",
+    "database.whitelist": "information_schema,cart",
+    "snapshot.mode": "initial",
+    "snapshot.locking.mode": "none",
+    "include.schema.changes": "true",
+    "include.query": "true",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false",
+    "internal.key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "internal.value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "internal.key.converter.schemas.enable": "false",
+    "internal.value.converter.schemas.enable": "false",
+    "transforms": "unwrap",
+    "transforms.unwrap.add.source.fields": "ts_ms",
+    "tombstones.on.delete": "false",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
+  }
+}

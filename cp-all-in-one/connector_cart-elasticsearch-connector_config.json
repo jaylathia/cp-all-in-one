@@ -1,0 +1,19 @@
+{
+  "name": "cart-elasticsearch-connector",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "tasks.max": "1",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "errors.log.enable": "true",
+    "errors.log.include.messages": "true",
+    "topics": "staging.cart.shopping_cart",
+    "connection.url": "http://elasticsearch:9200",
+    "auto.create.indices.at.start": "true",
+    "type.name": "_doc",
+    "key.ignore": "true",
+    "schema.ignore": "true",
+    "behavior.on.null.values": "ignore",
+    "behavior.on.malformed.documents": "warn",
+    "value.converter.schemas.enable": "false"
+  }
+}
