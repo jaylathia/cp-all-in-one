@@ -13,7 +13,6 @@
     "key.ignore": "true",
     "schema.ignore": "true",
     "behavior.on.null.values": "ignore",
-    "behavior.on.malformed.documents": "warn",
-    "value.converter.schemas.enable": "false"
+    "behavior.on.malformed.documents": "warn"
   }
 }
